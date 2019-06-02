@@ -17,4 +17,11 @@ class Artist
     @id = id.to_i
   end
 
+  def delete()
+    sql = "DELETE FROM artists
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 end
