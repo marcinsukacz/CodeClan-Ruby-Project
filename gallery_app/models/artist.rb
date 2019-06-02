@@ -10,7 +10,7 @@ class Artist
   end
 
   def save()
-    sql = "INSERT INTO artists alias VALUES $1 RETURNING id"
+    sql = "INSERT INTO artists (alias) VALUES ($1) RETURNING id"
     values = [@alias]
     result = SqlRunner.run(sql, values)
     id = result.first['id']

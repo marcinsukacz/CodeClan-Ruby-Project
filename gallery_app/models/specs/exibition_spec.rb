@@ -13,4 +13,9 @@ def test_title()
   assert_equal('Walls of London', result)
 end
 
+def test_category()
+  result = @exibition1.category
+  assert_equal('streetart', result)
+end
+
 end
