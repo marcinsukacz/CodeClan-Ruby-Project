@@ -25,4 +25,20 @@ class Exibition
     SqlRunner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM exibitions
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    exibition = Exibition.new(result)
+    return exibition
+  end
+
+  def self.all()
+    sql = "SELECT * FROM exibitions"
+    exibition_data = SqlRunner.run(sql)
+    exibitions = exibition_data.map { |exibition| Exibition.new(exibition) }
+    return exibitions
+  end
+
 end
