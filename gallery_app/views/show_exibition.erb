@@ -1,0 +1,7 @@
+<h2><%= @exibition.title %></h2>
+
+<p>Artist: </p>
+<p>Category: <%= @exibition.category %></p>
+
+<a href="/exibitions/<%= @exibition.id %>/edit">Edit</a>
+<form action="/exibitions/<%= @exibition.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

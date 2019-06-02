@@ -1,0 +1,12 @@
+<h2>Exibitions</h2>
+
+<div id="exibition-wrapper">
+  <% @exibitions.each do |exibition| %>
+
+  <div class="exibition">
+    <h3><a href="/management/exibitions/<%= exibition.id %>"><%= exibition.title %></a></h3>
+    <p>Category: <%= exibition.category %></p>
+  </div>
+
+  <% end %>
+</div>

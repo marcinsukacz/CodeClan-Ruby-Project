@@ -2,14 +2,25 @@
 <html>
 <head>
   <title>Art Gallery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <nav id="menu">
-    <li class="menu-item"><a href='/visitors'>If You Are a Visitor</a></li>
-    <li class="menu-item"><a href='/management'>If You Are a Manager</a></li>
-  </nav>
+  <div class="navbar">
+    <a href='/visitors'>If You Are a Visitor</a>
+    <div class="dropdown">
+      <button class="dropbtn">If You Are a Manager
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/management/exibitions">Exibitions</a>
+        <a href="/management/artists">Artists</a>
+      </div>
+    </div>
+  </div>
+
   <h1> ///// Art /////// Gallery ///// </h1>
+
   <%= yield %>
 
 </body>
