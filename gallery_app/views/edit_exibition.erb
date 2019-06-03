@@ -3,6 +3,16 @@
   <div class="form-wrapper">
 
     <div class="form-el">
+      <label for="id">ID:</label>
+      <input type="text" name="id" id="id" value="<%= @exibition.id%>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="id">ID:</label>
+      <input type="text" name="artist_id" id="id" value="<%= @exibition.artist_id%>"/>
+    </div>
+
+    <div class="form-el">
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" value="<%= @exibition.title %>"/>
     </div>
@@ -13,12 +23,13 @@
     </div>
 
     <div class="form-el">
-      <label for="artist">Artist:</label>
-      <input type="text" name="artist" id="artist" value="<%= @exibition.artist.alias %>"/>
+      <label for="artist_select">Assign Artist:</label>
+      <select name="artist_id" id="artist_select">
+        <% @artists.each do |artist| %>
+            <option value=<%= artist.id %>><%= artist.alias %></option>
+        <% end %>
+      </select>
     </div>
-
-
-
 
 
 

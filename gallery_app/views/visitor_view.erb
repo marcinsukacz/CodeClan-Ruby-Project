@@ -4,7 +4,7 @@
   <% @exibitions.each do |exibition| %>
 
   <div class="exibition">
-    <h3><a href="/visitors/<%= exibition.id %>"><%= exibition.title %></a></h3>
+    <h3><%= exibition.artist.alias %>: <a href="/visitors/<%= exibition.id %>"><%= exibition.title %></a></h3>
     <p>Category: <%= exibition.category %></p>
   </div>
 

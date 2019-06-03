@@ -13,11 +13,17 @@ class Exibition
   end
 
   def save()
-    sql = "INSERT INTO exibitions (title, category) VALUES ($1, $2) RETURNING id"
-    values = [@title, @category]
+    sql = "INSERT INTO exibitions (title, category, artist_id) VALUES ($1, $2, $3) RETURNING id"
+    values = [@title, @category, @artist_id]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
+  end
+
+  def update()
+    sql = "UPDATE exibitions SET (title, category, artist_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@title, @category, @artist_id, @id]
+    SqlRunner.run( sql, values )
   end
 
   def delete()
@@ -44,8 +50,12 @@ class Exibition
   end
 
   def artist()
-    artist = Artist.find(@artist_id)
-    return artist
+    sql = "SELECT * FROM artists
+    WHERE id = $1"
+    values = [@artist_id]
+    artist = SqlRunner.run( sql,values )
+    result = Artist.new( artist.first )
+    return result
   end
 
 end

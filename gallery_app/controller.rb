@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry')
 require_relative('models/exibition')
 require_relative('models/artist')
 also_reload('./models/*')
@@ -15,6 +16,9 @@ get '/management/exibitions' do
 end
 
 get '/management/exibitions/new' do
+   @artists = Artist.all
+   @exibition = Exibition.new(params)
+
     erb(:new_exibition)
 end
 
@@ -40,6 +44,8 @@ end
 get '/exibitions/:id/edit' do
   @artists = Artist.all
   @exibition = Exibition.find(params['id'])
+  #@artists = Artist.all
+  #@exibition = Exibition.new(params)
   erb(:edit_exibition)
 end
 
@@ -49,17 +55,25 @@ get '/artists/:id/edit' do
   erb(:edit_artist)
 end
 
-post '/exibitions/new' do
-  Exibition.new(params).save
-  redirect to '/management/exibitions'
-end
+
 
 post '/artists/new' do
   Artist.new(params).save
   redirect to '/management/artists'
 end
 
+post '/exibitions/new' do
+  Exibition.new(params).save
+  redirect to '/management/exibitions'
+end
+
 post '/artists/:id' do
   Artist.new(params).update
   redirect to '/management/artists'
+end
+
+post '/exibitions/:id' do
+  #binding.pry
+  Exibition.new(params).update
+  redirect to '/management/exibitions'
 end

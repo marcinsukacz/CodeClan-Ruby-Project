@@ -9,7 +9,24 @@
       </div>
 
       <div class="form-el">
+        <label for="category">Category:</label>
+        <input type="text" name="category" id="category" value="<%= @exibition.category%>"/>
+      </div>
+
+
+
+      <div class="form-el">
+        <label for="artist_select">Assign Artist:</label>
+        <select name="artist_id" id="artist_select">
+          <% @artists.each do |artist| %>
+              <option value=<%= artist.id %>><%= artist.alias %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-el">
         <input type="submit" value="Save"/>
       </div>
+
     </div>
 </form>
