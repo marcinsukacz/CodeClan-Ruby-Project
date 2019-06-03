@@ -13,17 +13,14 @@
     </div>
 
     <div class="form-el">
-      <label for="artist_select">Select Artist:</label>
-        <select name="artist_id" id="artist_select" selected="<%= @exibition.artist %>">
-          <% @artists.each do |artist| %>
-            <% if artist.id == @exibition.artist_id %>
-              <option value=<%= artist.id %> selected><%= artist.alias %></option>
-            <% else %>
-              <option value=<%= artist.id %>><%= artist.alias %></option>
-            <% end %>
-          <% end %>
-        </select>
+      <label for="artist">Artist:</label>
+      <input type="text" name="artist" id="artist" value="<%= @exibition.artist.alias %>"/>
     </div>
+
+
+
+
+
 
     <div class="form-el">
         <input type="submit" value="Save"/>

@@ -1,13 +1,15 @@
 require_relative('../db/sql_runner')
+require_relative('./artist')
 
 class Exibition
 
-  attr_reader :id, :title, :category
+  attr_reader :id, :title, :category, :artist_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @category = options['category']
+    @artist_id = options['artist_id'].to_i
   end
 
   def save()
@@ -15,7 +17,7 @@ class Exibition
     values = [@title, @category]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
-    @id = id.to_i
+    @id = id
   end
 
   def delete()

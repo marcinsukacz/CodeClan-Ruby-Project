@@ -49,7 +49,17 @@ get '/artists/:id/edit' do
   erb(:edit_artist)
 end
 
-post '/new_exibitions' do
+post '/exibitions/new' do
   Exibition.new(params).save
   redirect to '/management/exibitions'
+end
+
+post '/artists/new' do
+  Artist.new(params).save
+  redirect to '/management/artists'
+end
+
+post '/artists/:id' do
+  Artist.new(params).update
+  redirect to '/management/artists'
 end

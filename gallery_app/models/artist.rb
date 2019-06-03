@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./exibition')
 
 class Artist
 
@@ -16,6 +17,12 @@ class Artist
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id.to_i
+  end
+
+  def update()
+    sql = "UPDATE artists SET alias = $1 WHERE id = $2"
+    values = [@alias, @id]
+    SqlRunner.run( sql, values )
   end
 
   def delete()
