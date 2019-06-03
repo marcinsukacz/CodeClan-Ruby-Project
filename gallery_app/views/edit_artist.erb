@@ -10,9 +10,9 @@
 
     <div class="form-el">
       <label for="exibition_select">Select Exibition:</label>
-      <select name="exibition_id" id="exibition_select" selected="<%= @exibition.artist_id  %>">
+      <select name="exibition_id" id="exibition_select" selected="<%= @exibition.artist.id  %>">
         <% @exibitions.each do |exibition| %>
-          <% if exibition.id == @artist.exibition_id %>
+          <% if exibition.id == @artist.exibition.id %>
             <option value=<%= exibition.id %> selected><%= exibition.title %></option>
           <% else %>
             <option value=<%= exibition.id %>><%= exibition.title %></option>

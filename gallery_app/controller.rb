@@ -14,9 +14,17 @@ get '/management/exibitions' do
   erb(:manager_view)
 end
 
+get '/management/exibitions/new' do
+    erb(:new_exibition)
+end
+
 get '/management/artists' do
   @artists = Artist.all
   erb(:artists)
+end
+
+get '/management/artists/new' do
+  erb(:new_artist)
 end
 
 get '/management/artists/:id' do
@@ -39,4 +47,9 @@ get '/artists/:id/edit' do
   @exibitions = Exibition.all
   @artist = Artist.find(params['id'])
   erb(:edit_artist)
+end
+
+post '/new_exibitions' do
+  Exibition.new(params).save
+  redirect to '/management/exibitions'
 end

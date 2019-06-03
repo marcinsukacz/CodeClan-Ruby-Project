@@ -14,7 +14,7 @@
 
     <div class="form-el">
       <label for="artist_select">Select Artist:</label>
-        <select name="artist_id" id="artist_select" selected="<%= @exibition.artist.artist_id  %>">
+        <select name="artist_id" id="artist_select" selected="<%= @exibition.artist %>">
           <% @artists.each do |artist| %>
             <% if artist.id == @exibition.artist_id %>
               <option value=<%= artist.id %> selected><%= artist.alias %></option>
