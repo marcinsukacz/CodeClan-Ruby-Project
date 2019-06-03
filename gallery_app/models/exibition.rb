@@ -41,4 +41,9 @@ class Exibition
     return exibitions
   end
 
+  def artist()
+    artist = Artist.find(@artist_id)
+    return artist
+  end
+
 end

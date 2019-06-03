@@ -1,0 +1,32 @@
+<h2>Edit <%= @exibition.title %></h2>
+<form method="POST" action="/exibitions/<%= @exibition.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= @exibition.title %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="category">Category:</label>
+      <input type="text" name="category" id="category" value="<%= @exibition.category%>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="artist_select">Select Artist:</label>
+        <select name="artist_id" id="artist_select" selected="<%= @exibition.artist.artist_id  %>">
+          <% @artists.each do |artist| %>
+            <% if artist.id == @exibition.artist_id %>
+              <option value=<%= artist.id %> selected><%= artist.alias %></option>
+            <% else %>
+              <option value=<%= artist.id %>><%= artist.alias %></option>
+            <% end %>
+          <% end %>
+        </select>
+    </div>
+
+    <div class="form-el">
+        <input type="submit" value="Save"/>
+      </div>
+    </div>
+</form>

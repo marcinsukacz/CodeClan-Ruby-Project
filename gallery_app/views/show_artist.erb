@@ -1,0 +1,6 @@
+<h2><%= @artist.alias %></h2>
+
+<p>Exibition: </p>
+
+<a href="/artists/<%= @artist.id %>/edit">Edit</a>
+<form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

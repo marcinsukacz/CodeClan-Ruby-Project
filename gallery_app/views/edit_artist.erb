@@ -1,0 +1,28 @@
+<h2>Edit <%= @artist.alias %></h2>
+<form method="POST" action="/artists/<%= @artist.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="alias">Alias:</label>
+      <input type="text" name="alias" id="alias" value="<%= @artist.alias %>"/>
+    </div>
+
+
+    <div class="form-el">
+      <label for="exibition_select">Select Exibition:</label>
+      <select name="exibition_id" id="exibition_select" selected="<%= @exibition.artist_id  %>">
+        <% @exibitions.each do |exibition| %>
+          <% if exibition.id == @artist.exibition_id %>
+            <option value=<%= exibition.id %> selected><%= exibition.title %></option>
+          <% else %>
+            <option value=<%= exibition.id %>><%= exibition.title %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+
+      <div class="form-el">
+        <input type="submit" value="Save"/>
+      </div>
+    </div>
+</form>

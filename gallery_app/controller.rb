@@ -14,12 +14,29 @@ get '/management/exibitions' do
   erb(:manager_view)
 end
 
-get 'management/artists' do
+get '/management/artists' do
   @artists = Artist.all
   erb(:artists)
+end
+
+get '/management/artists/:id' do
+  @artist = Artist.find(params['id'])
+  erb(:show_artist)
 end
 
 get '/management/exibitions/:id' do
   @exibition = Exibition.find(params['id'])
   erb(:show_exibition)
+end
+
+get '/exibitions/:id/edit' do
+  @artists = Artist.all
+  @exibition = Exibition.find(params['id'])
+  erb(:edit_exibition)
+end
+
+get '/artists/:id/edit' do
+  @exibitions = Exibition.all
+  @artist = Artist.find(params['id'])
+  erb(:edit_artist)
 end
