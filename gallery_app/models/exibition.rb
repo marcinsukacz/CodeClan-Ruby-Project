@@ -42,6 +42,16 @@ class Exibition
     return exibition
   end
 
+  def self.filter_by_category(category)
+    sql = "SELECT * FROM exibitions
+    WHERE category = $1"
+    values = [category]
+    filtered_data = SqlRunner.run(sql, values)
+    filtered_exibitions = filtered_data.map { |exibition| Exibition.new(exibition) }
+    return filtered_exibitions
+  end
+
+
   def self.all()
     sql = "SELECT * FROM exibitions"
     exibition_data = SqlRunner.run(sql)
@@ -56,6 +66,18 @@ class Exibition
     artist = SqlRunner.run( sql,values )
     result = Artist.new( artist.first )
     return result
+  end
+
+
+
+  def self.filter_by_artist(test)
+    sql = "SELECT * FROM exibitions JOIN artists
+    ON exibitions.artist_id = artists.id
+    WHERE artists.alias LIKE '%' ||  $1 || '%';"
+    values = [test]
+    filtered_data = SqlRunner.run(sql, values)
+    filtered_exibitions = filtered_data.map { |exibition| Exibition.new(exibition) }
+    return filtered_exibitions
   end
 
 end

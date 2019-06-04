@@ -7,7 +7,18 @@ also_reload('./models/*')
 
 get '/visitors' do
   @exibitions = Exibition.all
+  @artists = Artist.all
   erb(:visitor_view)
+end
+
+get '/exibitions/filter/category' do
+  @exibitions = Exibition.filter_by_category(params['category'])
+  erb(:filtered_view)
+end
+
+get '/exibitions/filter/artist' do 
+  @exibitions = Exibition.filter_by_artist(params['alias'])
+  erb(:filtered_view)
 end
 
 get '/management/exibitions' do
@@ -36,9 +47,14 @@ get '/management/artists/:id' do
   erb(:show_artist)
 end
 
+get '/visitors/:id' do
+  @exibition = Exibition.find(params['id'])
+  erb(:show_exibition_visitors)
+end
+
 get '/management/exibitions/:id' do
   @exibition = Exibition.find(params['id'])
-  erb(:show_exibition)
+  erb(:show_exibition_management)
 end
 
 get '/exibitions/:id/edit' do
@@ -75,5 +91,15 @@ end
 post '/exibitions/:id' do
   #binding.pry
   Exibition.new(params).update
+  redirect to '/management/exibitions'
+end
+
+post '/artists/:id/delete' do
+  Artist.new(params).delete
+  redirect to '/management/artists'
+end
+
+post '/exibitions/:id/delete' do
+  Exibition.new(params).delete
   redirect to '/management/exibitions'
 end

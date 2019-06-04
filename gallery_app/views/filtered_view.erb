@@ -4,10 +4,9 @@
   <% @exibitions.each do |exibition| %>
 
   <div class="exibition">
-    <h3><%= exibition.artist.alias %>: <a href="/management/exibitions/<%= exibition.id %>"><%= exibition.title %></a></h3>
+    <h3><%= exibition.artist.alias %>: <a href="/visitors/<%= exibition.id %>"><%= exibition.title %></a></h3>
     <p>Category: <%= exibition.category %></p>
   </div>
 
   <% end %>
 </div>
-<a href="/management/exibitions/new">Add New Exibition</a>

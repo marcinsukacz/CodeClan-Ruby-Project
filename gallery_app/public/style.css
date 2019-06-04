@@ -61,3 +61,45 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.forms-wrapper {
+
+  display: flex;
+  justify-content:space-around ;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid #fff;
+  width: 900px;
+
+}
+
+.form-wrapper {
+  background: grey;
+  margin: auto;
+  text-align: center;
+  border: 1px solid #fff;
+
+}
+
+
+
+/* #exibition-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.exibition {
+  background: grey;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+} */
