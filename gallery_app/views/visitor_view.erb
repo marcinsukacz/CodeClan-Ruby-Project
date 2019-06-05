@@ -1,6 +1,12 @@
-<h2>Current Exibitions:</h2>
+
+
 <div class="forms-wrapper">
+  <h2 style="color:white;">Current Exibitions:</h2>
+
 <form method="GET" action="/exibitions/filter/category">
+
+
+
   <div class="form-wrapper">
 
     <div class="form-el">
@@ -44,8 +50,8 @@
   <% @exibitions.each do |exibition| %>
 
   <div class="exibition">
-    <h3><a href="/visitors/<%= exibition.id %>"><%= exibition.title %></a>    <h4>by <%= exibition.artist.alias %></h4></h3>
-
+    <h3><a href="/visitors/<%= exibition.id %>"><span class="blinking"><%= exibition.title %></span></a></h3>
+    <h4>by <%= exibition.artist.alias %></h4>
   </div>
 
   <% end %>

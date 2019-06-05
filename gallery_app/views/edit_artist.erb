@@ -1,13 +1,13 @@
-<h2>Edit <%= @artist.alias %></h2>
+<h2>Edit Artist: <%= @artist.alias %></h2>
 <form method="POST" action="/artists/<%= @artist.id %>">
-  <div class="form-wrapper">
+  <div class="edit-form-wrapper">
 
-    <div class="form-el">
+    <div class="edit-form-el">
       <label for="alias">Alias:</label>
       <input type="text" name="alias" id="alias" value="<%= @artist.alias %>"/>
     </div>
 
-    <div class="form-el">
+    <div class="edit-form-el">
       <input type="submit" value="Save"/>
     </div>
 

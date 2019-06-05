@@ -1,30 +1,30 @@
 <h2>Add New Exibition</h2>
 
 <form method="POST" action="/exibitions/new">
-  <div class="form-wrapper">
+  <div class="edit-form-wrapper">
 
-      <div class="form-el">
+      <div class="edit-form-el">
         <label for="title">Title:</label>
         <input type="text" name="title" id="title"/>
       </div>
 
-      <div class="form-el">
+      <div class="edit-form-el">
         <label for="category">Category:</label>
         <input type="text" name="category" id="category" value="<%= @exibition.category%>"/>
       </div>
 
 
 
-      <div class="form-el">
-        <label for="artist_select">Assign Artist:</label>
-        <select name="artist_id" id="artist_select">
+      <div class="edit-form-el">
+        <label for="artist_selection">Assign Artist:</label>
+        <select name="artist_id" id="artist_selection">
           <% @artists.each do |artist| %>
               <option value=<%= artist.id %>><%= artist.alias %></option>
           <% end %>
         </select>
       </div>
 
-      <div class="form-el">
+      <div class="edit-form-el">
         <input type="submit" value="Save"/>
       </div>
 

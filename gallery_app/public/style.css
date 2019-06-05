@@ -1,5 +1,9 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url("/background.png");
+}
+p {
+  margin-left: 5px;
 }
 
 .navbar {
@@ -65,41 +69,130 @@ body {
 .forms-wrapper {
 
   display: flex;
-  justify-content:space-around ;
+  justify-content:space-around;
+  overflow: hidden;
+  background: #333;
   flex-direction: row;
   flex-wrap: nowrap;
   border: 1px solid #fff;
-  width: 900px;
+  padding:inherit;
 
 }
 
 .form-wrapper {
-  background: grey;
-  margin: auto;
+  background: #333;
+  margin: 10px;
   text-align: center;
   border: 1px solid #fff;
 
 }
+.form-el label {
+    float: left;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
 
 
 
-/* #exibition-wrapper {
+
+#exibition-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .exibition {
-  background: grey;
-  padding: 5px;
+  /* background: #333; */
+  border: 3px solid #333;
+  color: #333;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  width: 30%;
+  border-radius: 15px;
+  padding: 20px;
   width: 200px;
   height: 150px;
-  margin-top: 10px;
+  margin: 20px;
+}
+.blinking{
+    animation:blinkingText 0.5s infinite;
+    font-size: 2em;
 
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
+}
+@keyframes blinkingText{
+    0%{     color: yellow;    }
+    25%{    color: red; }
+    45%{    color: purple; }
+    69%{    color: pink;  }
+    100%{   color: green;    }
+}
+
+h1 {
   text-align: center;
-} */
+}
+
+.edit-form-wrapper  input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit-form-wrapper  input[type=submit] {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form-wrapper  input[type=submit]:hover {
+  background-color: red;
+}
+
+.edit-form-wrapper {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+#category_select {
+  width: unset;
+  margin: auto;
+  padding: 4px 6px;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+#artist_select {
+  width: unset;
+  margin:auto;
+  padding: 4px 6px;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+footer{
+  
+  color: white;
+  background-color: #333;
+  display: flex;
+  justify-content:space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
