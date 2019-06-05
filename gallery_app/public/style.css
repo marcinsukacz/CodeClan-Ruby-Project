@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("/background.png");
+  background-image: url("/background.jpg");
 }
 p {
   margin-left: 5px;
@@ -188,7 +188,7 @@ h1 {
   text-decoration-color: initial;
 }
 footer{
-  
+
   color: white;
   background-color: #333;
   display: flex;
